@@ -165,6 +165,7 @@ mavlink_hil_sensor_t VehicleState::getSensorMsg(int offset_us)
 {
     	mavlink_hil_sensor_t sensor_msg;
 
+	sensor_msg.id = 0;
 	sensor_msg.time_usec =elapsed_sec * 1e6+offset_us;
 
 	sensor_msg.xacc = acc[0] + acc_nois * standard_normal_distribution_(random_generator_);
