@@ -19,8 +19,10 @@ It connects to FG (over UDP generic protocol) and transforms the data to TCP MAV
 	git clone https://github.com/PX4/PX4-Autopilot.git
 	cd ./PX4-Autopilot/
  	sed -i 's#https://github.com/PX4/PX4-FlightGear-Bridge.git#https://github.com/AdamPoloha/PX4-FlightGear-Bridge.git#g' .gitmodules
-	git submodule sync
- 	git submodule update --init --recursive
+	git submodule init
+	git submodule sync --recursive
+	git submodule update --init --recursive
+	git submodule update --remote --force Tools/simulation/flightgear/flightgear_bridge
 
 3) Set write permissions to the `Protocol` folder in the FlightGear installation directory.
 On Ubuntu run
