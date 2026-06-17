@@ -22,7 +22,7 @@ It connects to FG (over UDP generic protocol) and transforms the data to TCP MAV
 	git submodule sync
  	git submodule update --init --recursive
 
-3) Set write permissions to the `Protocols` folder in the FlightGear installation directory.
+3) Set write permissions to the `Protocol` folder in the FlightGear installation directory.
 On Ubuntu run
 
 	```sudo chmod a+w /usr/share/games/flightgear/Protocol ```
@@ -36,14 +36,18 @@ General usage consists following steps
 3) Wait until FlightGear fully loads.
 
 
-##### Helicopter bo105
+##### Rascal Electric
 
 1) Open [QgroundControl](http://qgroundcontrol.com/)
 2) In PX4Firmware folder run:
 
-	```make px4_sitl_nolockstep flightgear_bo105```
+	```make px4_sitl_nolockstep flightgear_rascal-electric```
 3) Wait until FlightGear fully loads.
 
+Alternatively:
+
+	cmake -B build/px4_sitl_nolockstep -H. -GNinja -DCONFIG=px4_sitl_nolockstep
+	ninja -C build/px4_sitl_nolockstep flightgear_rascal-electric
 
 
 #### Known issues
