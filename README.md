@@ -12,12 +12,17 @@ It connects to FG (over UDP generic protocol) and transforms the data to TCP MAV
 
 #### Install
 
-1) Install FlightGear. In Ubuntu You can use install the last stable FG from the [PPA repository](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear) by following commands:
+1) Install FlightGear. In Ubuntu You can use install the last stable FG from the [PPA repository](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear).
 
-	```sudo add-apt-repository -y -u ppa:saiarcot895/flightgear```
+2)   Set up PX4 with this repo by the following commands:
 
-	```sudo DEBIAN_FRONTEND=noninteractive apt-get -y --quiet install flightgear```
-2) Set write permissions to the `Protocols` folder in the FlightGear installation directory.
+	git clone https://github.com/PX4/PX4-Autopilot.git
+	cd ./PX4-Autopilot/
+ 	sed -i 's#https://github.com/PX4/PX4-FlightGear-Bridge.git#https://github.com/AdamPoloha/PX4-FlightGear-Bridge.git#g' .gitmodules
+	git submodule sync
+ 	git submodule update --init --recursive
+
+3) Set write permissions to the `Protocols` folder in the FlightGear installation directory.
 On Ubuntu run
 
 	```sudo chmod a+w /usr/share/games/flightgear/Protocol ```
